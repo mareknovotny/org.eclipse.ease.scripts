@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1024" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Elevate your IDE with scripting, EclipseCon Europe 2016</title>
+
+<meta name="description"
+	content="EclipseCon presentation of the Eclipse Advanced Scripting Environment." />
+<meta name="author" content="Christian Pontesegger" />
+
+<link
+	href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
+	rel="stylesheet" />
+	<link href='https://fonts.googleapis.com/css?family=Marck+Script&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet"> 
+	<link href="style.css" rel="stylesheet" />
+</head>
+
+<body class="impress-not-supported">
+
+	<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+	<div class="fallback-message">
+		<p>
+			Your browser <b>doesn't support the features required</b> by impress.js, so you are presented
+			with a simplified version of this presentation.
+		</p>
+		<p>
+			For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b>
+			browser.
+		</p>
+	</div>
+
+	<div id="impress">
+		<div id="title" class="step slide" data-x="0" data-y="600" data-scale="4">
+			<div id="i_love">Elevate your IDE<br /><br />with scripting</div>
+			<div id="copyright">EclipseCon Europe 2016<br />by Christian Pontesegger</div>
+		</div>
+
+		<div id="bigPicture" class="step slide" data-x="0" data-y="500" data-z="-500" data-rotate-x="-90">
+			<img id="picture_java" src="images/java.png" />
+
+			<img id="picture_script1" src="images/script.png" />
+			<img id="picture_script2" src="images/script.png" />
+			<img id="picture_script3" src="images/script.png" />
+			<img id="picture_script4" src="images/script.png" />
+			<img id="picture_script5" src="images/script.png" />
+
+			<p id="picture_ease" class="box eclipse">
+				EASE<br />Eclipse Advanced Scripting Environment
+			</p>
+
+			<p id="picture_jsdt" class="ideSupport box eclipse">JSDT</p>
+			<p id="picture_pydev" class="ideSupport box eclipse">PyDev</p>
+			<p id="picture_ggts" class="ideSupport box eclipse">GGTS</p>
+			<p id="picture_rdt" class="ideSupport box eclipse">RDT</p>
+
+			<p id="picture_eclipse" class="box eclipse">
+				Eclipse<br /> <img src="images/eclipse256.png" />
+			</p>
+
+			<p id="picture_rhino" class="engine box eclipse">Rhino</p>
+			<p id="picture_jython" class="engine box eclipse">Jython</p>
+			<p id="picture_groovy" class="engine box eclipse">Groovy</p>
+			<p id="picture_jruby" class="engine box eclipse">JRuby</p>
+		</div>
+
+		<div id="shell_main" class="step slide background" data-x="0" data-y="-1700">
+			<h1>An interactive script shell</h1>
+			<img class="center" src="images/scrn_shell.png" />
+		</div>
+
+		<div id="shell_jre" class="step slide background" data-x="0" data-y="-2700">
+			<h1>... with access to the Java runtime</h1>
+			<div id="jre1" class="code">
+				<img src="images/shell_java_1.png" />
+			</div>
+			<div id="jre2" class="code">
+				<img src="images/shell_java_2.png" />
+			</div>
+			<div id="jre3" class="code">
+				<img src="images/shell_java_3.png" />
+			</div>
+		</div>
+
+		<div id="shell_jars" class="step slide background" data-x="-700" data-y="-3700">
+			<h1>... your JARs</h1>
+			<img class="center" src="images/scrn_shell_jars.png" />
+		</div>
+
+		<div id="shell_eclipse" class="step slide background" data-x="700" data-y="-3700">
+			<h1>... and Eclipse</h1>
+			<img class="center" src="images/scrn_shell_eclipse.png" />
+			<p class="bottomright">with all its plug-ins</p>
+		</div>
+
+		<div id="code_completion" class="step slide background" data-x="1500" data-y="-1200" data-rotate="45">
+			<h1>Powerful code completion</h1>
+			<img class="center" src="images/scrn_code_completion.png" />
+		</div>
+
+		<div id="code_completion_help" class="step slide background" data-x="2200" data-y="-1900" data-rotate="45">
+			<h1>... with help tooltips</h1>
+			<img class="center" src="images/scrn_code_completion_help.png" width="880" />
+		</div>
+
+		<div id="modules_explorer" class="step slide background" data-x="2000" data-y="0" data-rotate="90">
+			<h1>Use modules for common tasks</h1>
+			<ul class="left">
+				<li>Launch support</li>
+				<li>Preferences</li>
+				<li>access Services</li>
+				<li>perform UI tasks</li>
+				<li>Script multithreading</li>
+				<li>Resource handling</li>
+			</ul>
+			<img class="right" src="images/scrn_modules_explorer.png" />
+		</div>
+
+		<div id="load_modules" class="step slide background" data-x="3000" data-y="0" data-rotate="90">
+			<h1>... loaded dynamically during runtime</h1>
+			<img class="center" src="images/scrn_load_module.png" />
+			<img id="popup" src="images/scrn_script_popup.png" />
+		</div>
+
+		<div id="wrap_java_instance" class="step slide background" data-x="4000" data-y="-1250" data-rotate="90">
+			<h1>Wrap any java object</h1>
+			<img class="center" src="images/scrn_wrap_instance.png" />
+		</div>
+
+		<div id="register_pojo" class="step slide background" data-x="4000" data-y="0" data-rotate="90">
+			<h1>Register POJOs</h1>
+			<img id="pojo1" src="images/code_simple_module.png" />
+			<img id="pojo2" src="images/code_module_extension.png" />
+		</div>
+
+		<div id="write_modules" class="step slide background" data-x="4000" data-y="1250" data-rotate="90">
+			<h1>or write sophisticated modules</h1>
+			<ul class="center">
+				<li>select methods/fields to export</li>
+				<li>have optional parameters</li>
+				<li>provide method aliases</li>
+				<li>deprecate methods</li>
+			</ul>
+			<a target="_blank"  class="centerbottom" href="http://codeandme.blogspot.co.at/2014/10/writing-modules-for-ease.html">Read the
+				detailed tutorial</a>
+		</div>
+
+		<div id="module_docs" class="step slide background" data-x="5000" data-y="-625" data-rotate="90">
+			<h1>Consistent documentation</h1>
+			<img class="center" src="images/scrn_online_help.png" />
+		</div>
+
+		<div id="module_docs_build" class="step slide background" data-x="5000" data-y="625" data-rotate="90">
+			<h1>created @ build time</h1>
+			<img class="center code" src="images/code_build_module_docs.png" />
+		</div>
+
+		<div id="launch_config" class="step slide background" data-x="1500" data-y="1200" data-rotate="135">
+			<h1>Launch support</h1>
+			<img class="center" src="images/scrn_launch_configuration.png" />
+		</div>
+
+		<div id="debug_config" class="step slide background" data-x="2200" data-y="1900" data-rotate="135">
+			<h1>Integrated debugger</h1>
+			<img class="center" src="images/scrn_debugging.png" />
+		</div>
+
+		<div id="script_libraries" class="step slide background" data-x="0" data-y="1700" data-rotate="180">
+			<h1>Create script libraries</h1>
+			<img class="left" src="images/scrn_script_explorer.png" />
+			<ul class="right">
+				<li>record shell scripts</li>
+				<li>load from known location</li>
+				<li>customize display structure</li>
+				<li>modify scripts</li>
+				<li>execute scripts</li>
+			</ul>
+		</div>
+
+		<div id="script_repositories" class="step slide background" data-x="0" data-y="2700" data-rotate="180">
+			<h1>Share with colleagues</h1>
+			<img class="center" src="images/scrn_script_locations.png" />
+			<p class="bottomright">... or the world</p>
+		</div>
+
+		<div id="script_ui_integration" class="step slide background" data-x="0" data-y="3700" data-rotate="180">
+			<h1>Enhance your UI</h1>
+			<div id="toolbar">
+				<img src="images/scrn_script_ui_toolbar.png" />
+				<p>... toolbars</p>
+			</div>
+			<div id="menu">
+				<img src="images/scrn_script_ui_menu.png" />
+				<p>... view menus</p>
+			</div>
+			<div id="context">
+				<img src="images/scrn_script_ui_context.png" />
+				<p>... context menus</p>
+			</div>
+			<a target="_blank"  class="bottomright" href="http://codeandme.blogspot.co.at/2014/12/ease-scripts-conquer-ui.html">Read the
+				detailed tutorial</a>
+		</div>
+
+		<div id="charts" class="step slide background" data-x="-1500" data-y="1200" data-rotate="225" >
+			<h1>Live charts</h1>
+			<div class="code">
+				<img src="images/code_charts.png" />
+			</div>
+			<img id="charts1" src="images/scrn_simple_chart.png" />
+			<img id="charts2" src="images/scrn_advanced_chart.png" />
+			<a target="_blank"  class="bottomright" href="http://codeandme.blogspot.co.at/2015/04/live-charting-with-ease.html">Read the detailed tutorial</a>
+		</div>
+
+		<div id="unit_tests" class="step slide background" data-x="-2000" data-y="0" data-rotate="270" >
+			<h1>Scripted unit testing</h1>
+			<img class="left" src="images/scrn_unit_testing.png" />
+			<ul class="right">
+				<li>UI support</li>
+				<li>Error markers in files</li>
+				<li>Reporting</li>
+				<li>integrates with Hudson/Jenkins</li>
+			</ul>
+			<a target="_blank"  class="bottomright" href="http://codeandme.blogspot.co.at/2015/05/unit-testing-with-scripts-in-ease.html">Read
+				the detailed tutorial</a>
+		</div>
+
+		<div id="java_code" class="step slide background" data-x="-1500" data-y="-1200" data-rotate="315">
+			<h1>Interact with Java source</h1>
+			<img class="center" src="images/code_invoke_java.png" />
+		</div>
+
+		<div id="java_load" class="step slide background" data-x="-2200" data-y="-1900" data-rotate="315">
+			<h1>... load classes from workspace</h1>
+			<img class="center" src="images/scrn_compile_class.png" />
+			<img class="bottomleft" src="images/scrn_compile_class_project.png" />
+		</div>
+
+		<div id="java_invoke" class="step slide background" data-x="-2900" data-y="-2600" data-rotate="315">
+			<h1>INVOKE !</h1>
+			<img class="center" src="images/scrn_invoke_java.png" />
+			<img id="java_result" src="images/scrn_invoke_result.png" />
+			<p class="bottomright">... and we do not launch a new JRE.</p>
+		</div>
+
+		<div id="engine_integration" class="step slide background" data-x="0" data-y="-5000" data-rotate="360">
+			<h1>Supported engines</h1>
+			<table class="center">
+				<tr>
+					<th class="rotate"></th>
+					<th class="rotate"><div><span>Launch</span></div></th>
+					<th class="rotate"><div><span>Shell</span></div></th>
+					<th class="rotate"><div><span>Modules</span></div></th>
+					<th class="rotate"><div><span>Scripts</span></div></th>
+					<th class="rotate"><div><span>Unit Test</span></div></th>
+					<th class="rotate"><div><span>Debug</span></div></th>
+				</tr>
+				<tr>
+					<td>Rhino</td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+				</tr>
+				<tr>
+					<td>Nashorn</td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+				</tr>
+				<tr>
+					<td>Python&nbsp;(Py4J)</td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+				</tr>
+				<tr>
+					<td>Jython</td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+				</tr>
+				<tr>
+					<td>Groovy</td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+				</tr>
+				<tr>
+					<td>JRuby</td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+				</tr>
+				<tr>
+					<td>JVM</td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+				</tr>
+				<tr>
+					<td>Beanshell</td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+					<td><img src="images/not_supported.png" width="20" alt="ok"/></td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="conclusion" class="step slide" data-x="0" data-y="100" data-scale="3" data-rotate-x="-20">
+			<div>Now start to</div>
+		</div>
+
+		<div id="get_in_touch" class="step slide background" data-x="0" data-y="-500" data-z="500" data-rotate-x="-90">
+			<h1>Get in touch</h1>
+			<p id="link1" class="center"><a target="_blank" href="https://eclipse.org/ease">eclipse.org/ease</a></p>
+			<p id="link2" class="center"><a target="_blank" href="https://codeandme.blogspot.com">codeandme.blogspot.com</a></p>
+		</div>
+
+		<div id="evaluation" class="step slide" data-x="0" data-y="-500" data-z="1500" data-rotate-x="-90">
+			<img class="center" src="images/evaluation.png" />
+		</div>
+
+	</div>
+
+	<div class="hint">
+		<p>Use a spacebar or arrow keys to navigate</p>
+	</div>
+	<script>
+		if ("ontouchstart" in document.documentElement) {
+			document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+		}
+	</script>
+
+	<script src="http://impress.github.io/impress.js/js/impress.js"></script>
+	<script>
+		impress().init();
+	</script>
+</body>
+</html>

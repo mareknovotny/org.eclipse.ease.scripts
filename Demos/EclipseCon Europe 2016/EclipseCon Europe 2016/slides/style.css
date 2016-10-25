@@ -1,0 +1,738 @@
+/*
+    We start with a good ol' reset.
+    That's the one by Eric Meyer http://meyerweb.com/eric/tools/css/reset/
+
+    You can probably argue if it is needed here, or not, but for sure it
+    doesn't do any harm and gives us a fresh start.
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+	details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
+	output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+    Now here is when interesting things start to appear.
+
+    We set up <body> styles with default font and nice gradient in the background.
+    And yes, there is a lot of repetition there because of -prefixes but we don't
+    want to leave anybody behind.
+*/
+body {
+	font-family: 'PT Sans', sans-serif;
+	min-height: 740px;
+	background: rgb(215, 215, 215);
+	background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240,
+		240)), to(rgb(190, 190, 190)));
+	background: -webkit-radial-gradient(rgb(240, 240, 240),
+		rgb(190, 190, 190));
+	background: -moz-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+	background: -ms-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+	background: -o-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+	background: radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+}
+
+/*
+    ... and give links a nice look.
+*/
+a {
+	color: blue;
+	text-decoration: none;
+	padding: 5px 10px 5px 10px;
+	border-radius: 0.2em;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-ms-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s;
+}
+
+a:hover, a:focus {
+	background: #ffffef;
+	text-shadow: -1px -1px 2px rgba(100, 100, 100, 0.5);
+	box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+}
+
+/*
+	slide headers
+*/
+h1 {
+	font-size: 1.5em;
+	text-align: center;
+	color: #444466;
+	
+	padding-top: 50px;
+}
+
+/*
+	tables
+*/
+table {
+	font-size: 0.6em;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: bottom;
+	padding: 5px 20px 5px 20px;
+}
+
+tr:nth-child(even) {
+	background: #d8d89e;
+}
+
+/*
+	rotated table headers
+*/
+th.rotate {
+  /* Something you can count on */
+  height: 70px;
+  white-space: nowrap;
+}
+
+th.rotate > div {
+  transform: 
+    /* Magic Numbers */
+    translate(10px, 20px)
+    /* 45 is really 360 - 45 */
+    rotate(300deg);
+  width: 50px;
+}
+
+th.rotate > div > span {
+  padding: 5px 10px;
+}
+
+/*
+	general stuff
+*/
+img {
+	max-height: 450px;
+}
+
+li {
+	margin-top: 10px;
+}
+
+ul {
+    list-style-image: url('images/bullet.png');
+}
+
+/*
+	Source code styling
+*/
+div.code {
+	background-image: url("images/script.png");
+	background-repeat: no-repeat;
+	background-size: 32px 32px;
+	background-position: 10px 10px;
+	padding-left: 60px;
+}
+
+.code {
+	background: white;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 5px 10px 5px 10px;
+}
+
+/*
+	Locations on a slide
+*/
+.left {
+	position: absolute;
+	left: 80px;
+
+	top: 55%;
+  	transform: translate(0%, -50%);
+}
+
+.right {
+	position: absolute;
+	right: 80px;
+	
+	top: 55%;
+  	transform: translate(0%, -50%);
+}
+
+.bottomright {
+	position: absolute;
+	right: 80px;
+	bottom: 50px;	
+}
+
+.bottomleft {
+	position: absolute;
+	left: 80px;
+	bottom: 50px;	
+}
+
+.center {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centerbottom {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+
+/*
+    All of the content will be still fully accessible for them, but I want
+    them to know that they are missing something - that's what the demo is
+    about, isn't it?
+
+    And then we hide the message, when support is detected in the browser.
+*/
+.fallback-message {
+	font-family: sans-serif;
+	line-height: 1.3;
+	width: 780px;
+	padding: 10px 10px 0;
+	margin: 20px auto;
+	border: 1px solid #E4C652;
+	border-radius: 10px;
+	background: #EEDC94;
+}
+
+.fallback-message p {
+	margin-bottom: 10px;
+}
+
+.impress-supported .fallback-message {
+	display: none;
+}
+
+/*
+    Now let's style the presentation steps.
+
+    We start with basics to make sure it displays correctly in everywhere ...
+*/
+.step {
+	position: relative;
+	width: 900px;
+	padding: 40px;
+	margin: 20px auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: 'PT Serif', georgia, serif;
+	font-size: 48px;
+	line-height: 1.5;
+	
+	transition: background-color 1s ease-in; 	
+}
+
+.step.active {
+	background: #ffffc7;
+	transition: background-color 1s ease-in;
+	
+	border: 1px solid rgba(82, 82, 52, .3);
+	border-radius: 10px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, .6);
+}
+
+.slide {
+	display: block;
+	width: 900px;
+	height: 700px;
+	padding: 40px 60px;
+
+	color: rgb(102, 102, 102);
+	text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+	font-family: 'Open Sans', Arial, sans-serif;
+	font-size: 30px;
+	line-height: 36px;
+	letter-spacing: -1px;
+}
+
+.background {
+	background: #ffffc7;
+}
+
+/*
+    ... and we enhance the styles for impress.js.
+*/
+.impress-enabled .step  {
+	opacity: 0;	
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-ms-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	transition: opacity 1s;
+
+	margin: 0;
+}
+
+.impress-enabled .step.active  {
+	opacity: 1;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-ms-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	transition: opacity 1s;
+}
+
+.impress-enabled .step.past  {
+	opacity: 0.6;
+}
+
+#title {
+	opacity: 1;
+}
+
+#bigPicture.step.past {
+	opacity: 0;
+}
+	
+/*
+    Now, when we have all the steps styled let's give users a hint how to navigate
+    around the presentation.
+*/
+.hint {
+	/*
+        We hide the hint until presentation is started and from browsers not supporting
+        impress.js, as they will have a linear scrollable view ...
+    */
+	display: none;
+	/*
+        ... and give it some fixed position and nice styles.
+    */
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 200px;
+	background: rgba(0, 0, 0, 0.5);
+	color: #EEE;
+	text-align: center;
+	font-size: 50px;
+	padding: 20px;
+	z-index: 100;
+	/*
+        By default we don't want the hint to be visible, so we make it transparent ...
+    */
+	opacity: 0;
+	/*
+        ... and position it below the bottom of the screen (relative to it's fixed position)
+    */
+	-webkit-transform: translateY(400px);
+	-moz-transform: translateY(400px);
+	-ms-transform: translateY(400px);
+	-o-transform: translateY(400px);
+	transform: translateY(400px);
+	/*
+        Now let's imagine that the hint is visible and we want to fade it out and move out
+        of the screen.
+
+        So we define the transition on the opacity property with 1s duration and another
+        transition on transform property delayed by 1s so it will happen after the fade out
+        on opacity finished.
+
+        This way user will not see the hint moving down.
+    */
+	-webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
+	-moz-transition: opacity 1s, -moz-transform 0.5s 1s;
+	-ms-transition: opacity 1s, -ms-transform 0.5s 1s;
+	-o-transition: opacity 1s, -o-transform 0.5s 1s;
+	transition: opacity 1s, transform 0.5s 1s;
+}
+
+/*
+    Now we 'enable' the hint when presentation is initialized ...
+*/
+.impress-enabled .hint {
+	display: block
+}
+
+/*
+	================================================================================
+    And now we start to style each step separately.
+
+    I agree that this may be not the most efficient, object-oriented and
+    scalable way of styling, but most of steps have quite a custom look
+    and typography tricks here and there, so they had to be styled separately.
+
+    First is the title step with a big <h1> (no room for padding) and some
+    3D positioning along Z axis.
+*/
+
+/*
+	Slides without borders & background
+*/
+.impress-on-title .step.active {
+	background: none;
+	
+	border-width: 0px;
+	box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+}
+
+.impress-on-conclusion .step.active {
+	background: none;
+	
+	border-width: 0px;
+	box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+}
+
+.impress-on-evaluation .step.active {
+	background: none;
+	
+	border-width: 0px;
+	box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+}
+
+/*
+	Slide: 'I love scripting'
+*/
+#title #i_love {
+	font-family: 'Bangers', cursive;
+	font-size: 2.5em;
+	text-align: center;
+	color: #444466;
+	
+	padding-top: 200px;
+}
+
+#title #copyright {
+	font-size: 0.8em;
+	
+	position: fixed;
+  	top: 60%;
+  	left: 50%;
+  	transform: translate(-50%, 0%);
+}
+
+
+
+/*
+	Slide: 'Shell JRE access'
+*/
+#shell_jre #jre1 {
+	position: absolute;
+	top: 250px;
+	left: 100px;
+}
+
+#shell_jre #jre2 {
+	position: absolute;
+	top: 350px;
+	left: 200px;
+}
+#shell_jre #jre3 {
+	position: absolute;
+	top: 450px;
+	left: 300px;
+}
+
+#code_completion_help #coming_soon {
+	position: absolute;
+	top: 370px;
+	left: 650px;
+	transform: rotate(-5deg);
+}
+
+
+/*
+	Slide: 'Register POJOs'
+*/
+
+#pojo1 {
+	position: absolute;
+	top: 150px;
+	left: 40px;
+	width: 400px;
+}
+
+#pojo2 {
+	position: absolute;
+	top: 400px;
+	left: 250px;
+	width: 600px;
+}
+
+/*
+	Slide: 'Script UI integration'
+*/
+#script_ui_integration #toolbar {
+	position: absolute;
+	top: 150px;
+	left: 40px;
+}
+
+#script_ui_integration #menu {
+	position: absolute;
+	top: 320px;
+	left: 40px;
+}
+
+#script_ui_integration #context {
+	position: absolute;
+	top: 200px;
+	right: 40px;
+}
+
+
+/*
+	Slide: 'Modules loaded dynamically'
+*/
+
+#popup {
+	position: absolute;
+	top: 450px;
+	right: 40px;
+}
+
+
+/*
+	Slide: 'Conclusion'
+*/
+#conclusion > div {
+	font-family: 'Marck Script', cursive;
+	font-size: 2em;
+	text-align: center;
+	color: #444466;
+	
+	padding-top: 200px;
+}
+
+
+/*
+	Slide: 'Invoke java'
+*/
+#java_invoke #java_result {
+	position: absolute;
+	top: 400px;
+	left: 600px;
+}
+
+/*
+	Slide: 'Invoke java'
+*/
+#charts1 {
+	position: absolute;
+	top: 145px;
+	left: 540px;
+	height: 200px;
+}
+
+#charts2 {
+	position: absolute;
+	top: 365px;
+	left: 540px;
+	height: 200px;
+}
+
+/*
+	Slide: 'Get in touch'
+*/
+
+#get_in_touch #link1 {
+  transform: translate(-50%, -100px);
+}
+
+#get_in_touch #link2 {
+  transform: translate(-50%, 0px);
+}
+
+/*
+	Slide: 'The whole picture' (picture)
+
+	Display how EASE interacts with Eclipse, engines and java
+*/
+
+#picture_eclipse {
+	left: 280px;
+	top: 220px;
+
+	width: 340px;
+	height: 315px;
+
+	font-size: 48px;
+	
+	padding-top: 30px;
+}
+
+#picture_eclipse img {
+	margin-top: 70px;	
+	width: 40%;
+}
+
+#picture_jsdt {
+	left: 165px;
+	top: 220px;
+
+	width: 100px;
+	height: 80px;
+}
+
+#picture_pydev {
+	left: 165px;
+	top: 309px;
+
+	width: 100px;
+	height: 80px;
+}
+
+#picture_ggts {
+	left: 165px;
+	top: 397px;
+
+	width: 100px;
+	height: 80px;
+}
+
+#picture_rdt {
+	left: 165px;
+	top: 485px;
+
+	width: 100px;
+	height: 80px;
+}
+
+#picture_rhino {
+	left: 635px;
+	top: 220px;
+
+	width: 100px;
+	height: 80px;
+}
+
+#picture_jython {
+	left: 635px;
+	top: 309px;
+
+	width: 100px;
+	height: 80px;
+}
+
+#picture_groovy {
+	left: 635px;
+	top: 397px;
+
+	width: 100px;
+	height: 80px;
+}
+
+#picture_jruby {
+	left: 635px;
+	top: 485px;
+
+	width: 100px;
+	height: 80px;
+}
+
+#picture_java {
+	width: 15%;
+	height: 15%;
+
+	position: absolute;
+	top: 575px;
+  	left: 50%;
+  	transform: translate(-50%, 0%);	
+}
+
+#picture_ease {
+	left: 165px;
+	top: 120px;
+
+	width: 565px;
+	height: 80px;
+}
+
+#picture_script1 {
+	position: absolute;
+	left: 250px;
+	top: 40px;
+	width: 50px;
+		
+  transition: all 3s ease-in;
+}
+
+#picture_script2 {
+	position: absolute;
+	left: 350px;
+	top: 40px;
+	width: 50px;
+
+  transition: all 3.5s ease-in;
+}
+
+#picture_script3 {
+	position: absolute;
+	left: 450px;
+	top: 40px;
+	width: 50px;
+
+  transition: all 4s ease-in;
+}
+
+#picture_script4 {
+	position: absolute;
+	left: 550px;
+	top: 40px;
+	width: 50px;
+
+  transition: all 4.5s ease-in;
+}
+
+#picture_script5 {
+	position: absolute;
+	left: 650px;
+	top: 40px;
+	width: 50px;
+
+  transition: all 5s ease-in;
+}
+
+.box {
+	display: block;
+	border-radius: 10px;
+	text-align: center;
+	position: absolute;
+}
+
+.eclipse {
+	border: 1px solid #8C6C9C;
+	background: linear-gradient(to bottom, #E1D5E7, #8C6C9C);
+	color: #330066;
+	font-size: 20px;
+}
+
+
+    

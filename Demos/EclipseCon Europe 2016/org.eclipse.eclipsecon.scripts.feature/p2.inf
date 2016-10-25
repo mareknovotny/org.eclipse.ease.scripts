@@ -1,0 +1,1 @@
+instructions.configure = org.eclipse.ease.ui.scripts.addScriptLocation(location:platform:/plugin/org.eclipse.eclipsecon.scripts/scripts);

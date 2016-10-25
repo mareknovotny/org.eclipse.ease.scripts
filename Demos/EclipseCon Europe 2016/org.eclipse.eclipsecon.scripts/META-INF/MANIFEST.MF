@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EclipseCon France 2016 Scripts
+Bundle-SymbolicName: org.eclipse.eclipsecon.scripts
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Eclipse.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
