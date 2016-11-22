@@ -15,4 +15,4 @@ loadModule('/System/UI')
 
 loadModule("/System/Git UI")
 
-resetToOriginHead(getRepository(getSelection()), 1);
+resetCommits(getRepository(getSelection()), 1);
