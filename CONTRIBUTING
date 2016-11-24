@@ -1,0 +1,72 @@
+Contributing to Eclipse Advanced Scripting Environment (EASE)
+=============================================================
+
+Thanks for your interest in this project.
+
+
+Project description:
+--------------------
+
+EASE allows the execution of script code (using scripting languages such as JS, Python, ...) within the context of the Eclipse Platform/RCP. As they are running in the same JRE as Eclipse itself, these scripts have direct access to any class of your application and may interact with your workbench.
+
+Through keywords within header data, scripts might be integrated seamlessly into the UI as toolbar and/or menu contributions. Thus the functionality could be extended by providing scripts only. No need to build, export and install a new feature, just provide a script and add it to your application at runtime.
+
+Scripting allows to easily extend an existing application, helps in automating everyday tasks and aids in rapid prototyping during application development. 
+
+
+Developer resources:
+--------------------
+
+Information regarding source code management, builds, coding standards, and more.
+
+- http://projects.eclipse.org/projects/technology.ease/developer
+
+
+Source Code Repositories:
+-------------------------
+
+The project maintains the following source code repositories:
+
+- git://git.eclipse.org/gitroot/ease/org.eclipse.ease.core.git
+
+  Contains the core framework for scripting, keywords and ui
+
+- git://git.eclipse.org/gitroot/ease/org.eclipse.ease.modules.git
+
+  Additional script modules providing dedicated scripting functionality (eg. EGit support)
+
+- git://git.eclipse.org/gitroot/ease/org.eclipse.ease.scripts.git
+
+  Sample scripts and demos that users can consume
+  
+
+Contributor Agreement:
+----------------------
+
+Before your contribution can be accepted by the project, you need to create and electronically sign the Eclipse Contributor Agreement (ECA).
+
+- http://www.eclipse.org/legal/ECA.php
+
+
+Contact:
+--------
+
+Contact the project developers via the project's "dev" list.
+
+- https://dev.eclipse.org/mailman/listinfo/ease-dev
+
+
+Search for bugs:
+----------------
+
+This project uses Bugzilla to track ongoing development and issues.
+
+- https://bugs.eclipse.org/bugs/buglist.cgi?product=EASE
+
+
+Create a new bug:
+-----------------
+
+Be sure to search for existing bugs before you create another one. Remember that contributions are always welcome!
+
+- https://bugs.eclipse.org/bugs/enter_bug.cgi?product=EASE
